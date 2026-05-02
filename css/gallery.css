@@ -1,0 +1,52 @@
+/* ==========================================
+   DIVISOR DE SEÇÃO
+   ========================================== */
+.section-divisor-wrapper {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0;
+    margin-bottom: -5px;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.section-divisor-wrapper img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ==========================================
+   GALERIA
+   ========================================== */
+.gallery-section {
+    background: var(--cinza-claro);
+    color: #333;
+}
+
+.gallery-section .container {
+    padding: 5% 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-height: 625px;
+    overflow-y: auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* Galeria - Responsivo */
+@media (max-width: 1023px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 700px;
+    }
+}

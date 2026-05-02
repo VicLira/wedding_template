@@ -1,0 +1,64 @@
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero-content {
+    position: relative;
+    width: 100vw;
+    height: 95vh;
+    image-orientation: from-image;
+    background: url('../assets/images/hero-img-desktop.png') center top/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content > .container {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--black), transparent);
+}
+
+/* Hero - Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.time-unit span {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.time-unit p {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+}
+
+/* Hero - Responsivo */
+@media (max-width: 1023px) {
+    .hero-content {
+        max-height: 85vh;
+        background: url('../assets/images/hero-img-desktop.png') 60% center/cover no-repeat;
+    }
+}

@@ -1,0 +1,77 @@
+/* ==========================================
+   VARIÁVEIS GLOBAIS
+   ========================================== */
+:root {
+    --rosa-fundo: #c69393;
+    --texto-claro: #ffffff;
+    --black: #2E2D2D;
+    --cinza-claro: #E6E6E4;
+    --font-display: 'Beau Rivage', cursive;
+    --font-body: 'Lato', sans-serif;
+}
+
+
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.container {
+    max-width: 90%;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--rosa-fundo);
+    color: var(--texto-claro);
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE (Mobile / Desktop)
+   ========================================== */
+.mobile { display: none !important; }
+.desktop { display: block; }
+
+@media (max-width: 1023px) {
+    .mobile { display: flex !important; }
+    .desktop { display: none !important; }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar-menu.is-active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+}
+
+
+/* ==========================================
+   TIPOGRAFIA
+   ========================================== */
+h1 {
+    font-family: var(--font-display);
+    font-size: 5rem;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+}
+
+h2.section-title {
+    font-family: var(--font-display);
+    font-size: 4rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    text-align: center;
+}

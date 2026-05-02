@@ -1,0 +1,43 @@
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar-center .navbar-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-item-container.mobile {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-burger {
+    margin: 0;
+    margin-right: 10px;
+    margin-left: auto;
+    color: var(--texto-claro);
+}
+
+.navbar-item {
+    color: var(--texto-claro);
+}
+
+.navbar-start {
+    max-width: 200px;
+}
+
+.navbar-start > a {
+    color: var(--texto-claro) !important;
+}
+
+
+@media (max-width: 1023px) {
+    .navbar-menu {
+        background: var(--black);
+    }
+}
+

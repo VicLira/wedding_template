@@ -1,0 +1,100 @@
+/* ==========================================
+   SOBRE NÓS
+   ========================================== */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section .container {
+    height: 100%;
+    margin: 5% 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.about-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Sobre - Cards */
+.about-section .container .card {
+    width: 100%;
+    display: flex;
+    background: none;
+    border: none;
+    --bulma-card-shadow: none;
+    color: var(--texto-claro);
+    justify-content: space-between;
+}
+
+.about-section .card .card-content {
+    border: none;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-body);
+    text-align: justify;
+}
+
+.about-section .card .card-content .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-section .card .card-image {
+    width: 30%;
+    height: 100%;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 600px;
+    max-height: 600px;
+}
+
+/* Sobre - Responsivo */
+@media (max-width: 1023px) {
+    .about-section .container {
+        gap: 15px;
+    }
+
+    .about-section .container .card {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+
+    .about-section .card .card-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        max-height: none;
+        min-height: auto;
+        order: 2;
+    }
+
+    .about-section .card .card-content {
+        order: 1;
+    }
+}
