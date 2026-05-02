@@ -62,3 +62,21 @@
         background: url('../assets/images/hero-img-desktop.png') 60% center/cover no-repeat;
     }
 }
+
+
+@media (max-width: 767px) {
+    .countdown {
+        gap: 40px;
+    }
+
+    .time-unit span {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .time-unit p {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        line-height: 1;
+    }
+}

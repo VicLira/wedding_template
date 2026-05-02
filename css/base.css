@@ -24,7 +24,6 @@ body {
     font-family: var(--font-body);
     background-color: var(--rosa-fundo);
     color: var(--texto-claro);
-    line-height: 1.6;
 }
 
 
@@ -74,4 +73,11 @@ h2.section-title {
     font-family: var(--font-display);
     font-size: 3.5rem;
     text-align: center;
+}
+
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 3rem;
+    }
 }

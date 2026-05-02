@@ -27,11 +27,6 @@
     flex-direction: row-reverse;
 }
 
-.about-text {
-    font-size: 1.25rem;
-    line-height: 1.8;
-}
-
 .about-img {
     width: 100%;
     border-radius: 8px;
@@ -60,6 +55,8 @@
 }
 
 .about-section .card .card-content .content {
+    font-size: 1.10rem;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -40,3 +40,13 @@
         font-size: 2.5rem;
     }
 }
+
+@media (max-width: 767px) {
+    .footer .container .footer-img-container .footer-content {
+        padding-bottom: 100px;
+    }
+    
+    .footer .container .footer-img-container .footer-content h2 {
+        font-size: 1.25rem;
+    }
+}
