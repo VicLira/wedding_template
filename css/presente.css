@@ -1,0 +1,226 @@
+/* ==========================================
+   PRESENTE - Página de Detalhe
+   ========================================== */
+
+.presente-detalhe {
+    background-color: var(--rosa-fundo);
+    min-height: 100vh;
+}
+
+/* Breadcrumb */
+.presente-detalhe .breadcrumb a {
+    color: var(--texto-claro);
+    opacity: 0.8;
+}
+
+.presente-detalhe .breadcrumb a:hover {
+    color: var(--texto-claro);
+    opacity: 1;
+}
+
+.presente-detalhe .breadcrumb li.is-active a {
+    color: var(--texto-claro);
+    font-weight: 700;
+}
+
+.presente-detalhe .breadcrumb li + li::before {
+    color: var(--texto-claro);
+    opacity: 0.6;
+}
+
+/* Imagem do produto */
+.presente-imagem-wrapper {
+    background: var(--texto-claro);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.presente-imagem-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+/* Info do produto */
+.presente-info {
+    background: var(--texto-claro);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.presente-titulo {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.presente-descricao {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.presente-preco-box {
+    background: linear-gradient(135deg, var(--rosa-fundo), #d4a3a3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.presente-valor {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--texto-claro);
+}
+
+.presente-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    margin: 1.5rem 0;
+}
+
+/* Seção Pagamento */
+.presente-pagamento {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.presente-pagamento-titulo {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.presente-pagamento-instrucao {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* QR Code */
+.presente-qrcode-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.presente-qrcode {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 3px solid var(--rosa-fundo);
+    padding: 8px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* PIX Copy */
+.presente-pix-copy {
+    margin-bottom: 1.5rem;
+}
+
+.presente-pix-copy .input {
+    font-size: 0.85rem;
+    background: #f9f9f9;
+    border-color: #ddd;
+    color: var(--black);
+}
+
+.presente-pix-copy .input:focus {
+    border-color: var(--rosa-fundo);
+    box-shadow: 0 0 0 2px rgba(198, 147, 147, 0.2);
+}
+
+.presente-pix-copy .button {
+    background: var(--rosa-fundo);
+    border-color: var(--rosa-fundo);
+    color: var(--texto-claro);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.presente-pix-copy .button:hover {
+    background: #b07e7e;
+    border-color: #b07e7e;
+    transform: translateY(-1px);
+}
+
+/* Mensagem */
+.presente-mensagem {
+    background: #fdf2f2;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.presente-mensagem p {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Botão Voltar */
+.presente-btn-voltar {
+    border-color: var(--texto-claro) !important;
+    color: var(--texto-claro) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.presente-btn-voltar:hover {
+    background: var(--texto-claro) !important;
+    color: var(--rosa-fundo) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+    .presente-detalhe {
+        padding-top: 1rem;
+    }
+
+    .presente-info {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .presente-titulo {
+        font-size: 1.6rem;
+    }
+
+    .presente-valor {
+        font-size: 1.5rem;
+    }
+
+    .presente-qrcode {
+        width: 180px;
+        height: 180px;
+    }
+
+    .presente-imagem-wrapper img {
+        aspect-ratio: 4 / 3;
+    }
+}

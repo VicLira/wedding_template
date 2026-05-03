@@ -1,0 +1,46 @@
+/* ==========================================
+   PRESENTES
+   ========================================== */
+.presentes-section {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--rosa-fundo);
+    padding-top: 2rem;
+}
+
+.presentes-section .section-title {
+    margin-bottom: 2rem;
+}
+
+.presentes-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentes-card .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentes-preco {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--texto-claro);
+    margin-top: auto;
+}
+
+/* ==========================================
+   ADMIN CONTROLS
+   ========================================== */
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+.admin-actions .button {
+    flex: 1;
+}

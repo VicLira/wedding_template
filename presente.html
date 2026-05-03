@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente | Olivia e Rodrigo</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="hero">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <!-- Navbar Brand (Mobile) -->
+                <div class="navbar-brand">
+                    <div class="navbar-item-container mobile">
+                        <a class="navbar-item" href="index.html">
+                            <h2>Olívia e Rodrigo</h2>
+                        </a>
+                    </div>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarPresente">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <!-- Navbar Menu (Links + Botões Mobile) -->
+                <div id="navbarPresente" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html#sobre">Sobre</a>
+                        <a class="navbar-item" href="confirme-presenca.html">Confirme Presença</a>
+                        <a class="navbar-item" href="presentes.html">Presentes</a>
+                    </div>
+
+                    <div class="navbar-end mobile">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" href="presentes.html">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navbar Center (Desktop) -->
+                <div class="navbar-center desktop">
+                    <a class="navbar-item" href="index.html">
+                        <h2>Olívia e Rodrigo</h2>
+                    </a>
+                </div>
+
+                <!-- Navbar End (Desktop) -->
+                <div class="navbar-menu desktop">
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" href="presentes.html">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== PRODUTO DETALHE ==================== -->
+    <section class="section presente-detalhe">
+        <div class="container">
+
+            <!-- Loading -->
+            <p id="presente-loading" class="has-text-centered">Carregando presente...</p>
+
+            <!-- Conteúdo do produto -->
+            <div id="presente-conteudo" style="display: none;">
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb mb-5" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="presentes.html">Presentes</a></li>
+                        <li class="is-active"><a href="#" id="breadcrumb-nome" aria-current="page">Presente</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Layout principal -->
+                <div class="columns is-variable is-8">
+
+                    <!-- Coluna Imagem -->
+                    <div class="column is-6">
+                        <div class="presente-imagem-wrapper">
+                            <figure class="image">
+                                <img id="presente-img" src="https://placehold.co/600x600" alt="Presente">
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Info -->
+                    <div class="column is-6">
+                        <div class="presente-info">
+                            <h1 class="presente-titulo" id="presente-nome"></h1>
+                            <p class="presente-descricao" id="presente-descricao"></p>
+
+                            <div class="presente-preco-box">
+                                <span class="presente-valor" id="presente-valor"></span>
+                            </div>
+
+                            <!-- Separador -->
+                            <hr class="presente-divider">
+
+                            <!-- Seção Pagamento -->
+                            <div class="presente-pagamento">
+                                <h3 class="presente-pagamento-titulo">
+                                    <span class="icon mr-2">♥</span>
+                                    Finalize o envio do presente
+                                </h3>
+
+                                <p class="presente-pagamento-instrucao">
+                                    Escaneie o QR Code ou copie o código PIX abaixo para realizar o presente:
+                                </p>
+
+                                <!-- QR Code -->
+                                <div class="presente-qrcode-wrapper">
+                                    <img id="presente-qrcode" src="" alt="QR Code PIX" class="presente-qrcode">
+                                </div>
+
+                                <!-- Código PIX para copiar -->
+                                <div class="presente-pix-copy">
+                                    <div class="field has-addons has-addons-centered">
+                                        <div class="control is-expanded">
+                                            <input class="input" type="text" id="presente-pix-link" readonly
+                                                placeholder="Chave PIX">
+                                        </div>
+                                        <div class="control">
+                                            <button class="button is-primary" id="btn-copiar-pix" onclick="copiarPix()">
+                                                Copiar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="help has-text-centered" id="pix-copiado" style="display: none; color: #48c78e;">
+                                        ✓ Código copiado!
+                                    </p>
+                                </div>
+
+                                <!-- Mensagem de carinho -->
+                                <div class="presente-mensagem">
+                                    <p>Qualquer dúvida, estamos disponíveis no WhatsApp 💕</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botão Voltar -->
+                <div class="has-text-centered mt-6">
+                    <a href="presentes.html" class="button is-outlined is-medium presente-btn-voltar">
+                        ← Voltar para a lista de presentes
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Produto não encontrado -->
+            <div id="presente-nao-encontrado" style="display: none;">
+                <div class="has-text-centered">
+                    <h2 class="title is-4">Presente não encontrado</h2>
+                    <p class="mb-4">O presente que você procura não existe ou foi removido.</p>
+                    <a href="presentes.html" class="button is-primary">Ver todos os presentes</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/presente.js"></script>
+</body>
+
+</html>

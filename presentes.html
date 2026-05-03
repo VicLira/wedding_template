@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentes | Olivia e Rodrigo</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="hero">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <!-- Navbar Brand (Mobile) -->
+                <div class="navbar-brand">
+                    <div class="navbar-item-container mobile">
+                        <a class="navbar-item" href="index.html">
+                            <h2>Olívia e Rodrigo</h2>
+                        </a>
+                    </div>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarPresentes">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <!-- Navbar Menu (Links + Botões Mobile) -->
+                <div id="navbarPresentes" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html#sobre">Sobre</a>
+                        <a class="navbar-item" href="confirme-presenca.html">Confirme Presença</a>
+                        <a class="navbar-item" href="presentes.html">Presentes</a>
+                    </div>
+
+                    <div class="navbar-end mobile">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" id="btn-login-mobile" onclick="abrirModalLogin()">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navbar Center (Desktop) -->
+                <div class="navbar-center desktop">
+                    <a class="navbar-item" href="index.html">
+                        <h2>Olívia e Rodrigo</h2>
+                    </a>
+                </div>
+
+                <!-- Navbar End (Desktop) -->
+                <div class="navbar-menu desktop">
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" id="btn-login-desktop" onclick="abrirModalLogin()">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== PRESENTES ==================== -->
+    <section class="section presentes-section">
+        <div class="container">
+            <h2 class="section-title">Presentes</h2>
+
+            <!-- Loading -->
+            <p id="presentes-loading" class="has-text-centered">Carregando produtos...</p>
+
+            <!-- Grid preenchido dinamicamente pelo JS -->
+            <div class="columns is-multiline presentes-grid"></div>
+
+            <!-- Paginação (gerada dinamicamente pelo JS) -->
+            <nav id="paginacao" class="pagination is-centered mt-6" role="navigation" aria-label="pagination" style="display: none;">
+            </nav>
+
+        </div>
+    </section>
+
+    <!-- ==================== MODAL LOGIN ==================== -->
+    <div class="modal" id="modal-login">
+        <div class="modal-background" onclick="fecharModalLogin()"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Login Admin</p>
+                <button class="delete" aria-label="close" onclick="fecharModalLogin()"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Login</label>
+                    <div class="control">
+                        <input class="input" type="text" id="login-usuario" placeholder="Seu login">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" id="login-senha" placeholder="Sua senha">
+                    </div>
+                </div>
+                <p class="help is-danger" id="login-erro" style="display:none;"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" id="btn-entrar" onclick="fazerLogin()">Entrar</button>
+                <button class="button" onclick="fecharModalLogin()">Cancelar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL ADMIN (Adicionar/Editar) ==================== -->
+    <div class="modal" id="modal-admin">
+        <div class="modal-background" onclick="fecharModalAdmin()"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modal-admin-titulo">Adicionar Presente</p>
+                <button class="delete" aria-label="close" onclick="fecharModalAdmin()"></button>
+            </header>
+            <section class="modal-card-body">
+                <input type="hidden" id="admin-id">
+                <div class="field">
+                    <label class="label">Nome</label>
+                    <div class="control">
+                        <input class="input" type="text" id="admin-nome" placeholder="Nome do presente">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Descrição</label>
+                    <div class="control">
+                        <textarea class="textarea" id="admin-descricao" placeholder="Descrição do presente"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Valor (R$)</label>
+                    <div class="control">
+                        <input class="input" type="number" id="admin-valor" placeholder="0.00" step="0.01">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Imagem do Presente</label>
+                    <div class="control">
+                        <div class="file has-name is-fullwidth" id="admin-imagem-file">
+                            <label class="file-label">
+                                <input class="file-input" type="file" id="admin-imagem" accept="image/jpeg,image/png,image/webp" onchange="previewImagem(this)">
+                                <span class="file-cta">
+                                    <span class="file-label">Escolher imagem…</span>
+                                </span>
+                                <span class="file-name" id="admin-imagem-nome">Nenhum arquivo selecionado</span>
+                            </label>
+                        </div>
+                        <p class="help">JPG, PNG ou WebP. Máximo 5MB.</p>
+                    </div>
+                    <figure class="image mt-3" id="admin-imagem-preview" style="display:none; max-width:200px;">
+                        <img id="admin-imagem-preview-img" src="" alt="Preview">
+                    </figure>
+                </div>
+                <div class="field">
+                    <label class="label">Chave PIX</label>
+                    <div class="control">
+                        <input class="input" type="text" id="admin-pix" placeholder="Chave PIX ou código copia-e-cola">
+                    </div>
+                </div>
+                <p class="help is-danger" id="admin-erro" style="display:none;"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" id="btn-salvar-admin" onclick="salvarPresente()">Salvar</button>
+                <button class="button" onclick="fecharModalAdmin()">Cancelar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/presentes.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
