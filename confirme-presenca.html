@@ -26,15 +26,260 @@
 </head>
 
 <body>
-    <section class="hero is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Confirme Presença</h1>
-                <p>Em breve...</p>
-                <a href="index.html" class="button is-primary mt-4">Voltar</a>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="hero">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <!-- Navbar Brand (Mobile) -->
+                <div class="navbar-brand">
+                    <div class="navbar-item-container mobile">
+                        <a class="navbar-item" href="index.html">
+                            <h2>Olívia e Rodrigo</h2>
+                        </a>
+                    </div>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarConfirmacao">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <!-- Navbar Menu (Links + Botões Mobile) -->
+                <div id="navbarConfirmacao" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html#sobre">Sobre</a>
+                        <a class="navbar-item" href="confirme-presenca.html">Confirme Presença</a>
+                        <a class="navbar-item" href="presentes.html">Presentes</a>
+                    </div>
+
+                    <div class="navbar-end mobile">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" id="btn-login-mobile" onclick="abrirModalLogin()">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navbar Center (Desktop) -->
+                <div class="navbar-center desktop">
+                    <a class="navbar-item" href="index.html">
+                        <h2>Olívia e Rodrigo</h2>
+                    </a>
+                </div>
+
+                <!-- Navbar End (Desktop) -->
+                <div class="navbar-menu desktop">
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-light" id="btn-login-desktop" onclick="abrirModalLogin()">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== CONFIRMAÇÃO - CONVIDADO ==================== -->
+    <section class="section confirmacao-section">
+        <div class="container">
+            <h2 class="section-title">Confirme sua Presença</h2>
+
+            <!-- Step 1: Buscar nome -->
+            <div id="step-busca" class="confirmacao-box">
+                <p class="confirmacao-instrucao">Digite seu nome completo para confirmar presença:</p>
+                <div class="field has-addons has-addons-centered">
+                    <div class="control is-expanded autocomplete-wrapper">
+                        <input class="input is-medium" type="text" id="busca-nome" placeholder="Seu nome completo" autocomplete="off" oninput="mostrarSugestoes(this.value)">
+                        <div class="autocomplete-list" id="autocomplete-list"></div>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary is-medium" id="btn-buscar" onclick="buscarConvidado()">Buscar</button>
+                    </div>
+                </div>
+                <p class="help is-danger" id="busca-erro" style="display:none;"></p>
             </div>
+
+            <!-- Step 2: Formulário de confirmação -->
+            <div id="step-formulario" class="confirmacao-box" style="display:none;">
+                <div class="confirmacao-boas-vindas">
+                    <p>Olá, <strong id="form-nome-display"></strong>! 🎉</p>
+                    <p>Preencha os dados abaixo para confirmar sua presença:</p>
+                </div>
+
+                <input type="hidden" id="form-id">
+
+                <div class="field">
+                    <label class="label">Telefone / WhatsApp</label>
+                    <div class="control">
+                        <input class="input" type="tel" id="form-telefone" placeholder="(11) 99999-9999">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Restrições alimentares</label>
+                    <div class="control">
+                        <input class="input" type="text" id="form-restricoes" placeholder="Ex: vegetariano, alergia a frutos do mar... (deixe vazio se não tiver)">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Você poderá comparecer?</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select id="form-presenca">
+                                <option value="sim">Sim, confirmo presença!</option>
+                                <option value="nao">Infelizmente não poderei ir</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Recado para os noivos (opcional)</label>
+                    <div class="control">
+                        <textarea class="textarea" id="form-recado" placeholder="Deixe um recado carinhoso..."></textarea>
+                    </div>
+                </div>
+
+                <p class="help is-danger" id="form-erro" style="display:none;"></p>
+
+                <div class="field mt-5">
+                    <div class="control has-text-centered">
+                        <button class="button is-primary is-medium" id="btn-confirmar" onclick="confirmarPresenca()">Confirmar Presença</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Sucesso -->
+            <div id="step-sucesso" class="confirmacao-box" style="display:none;">
+                <div class="has-text-centered">
+                    <h3 class="title is-4 confirmacao-sucesso-titulo">Presença confirmada! 💕</h3>
+                    <p class="confirmacao-sucesso-texto">Obrigado por confirmar. Nos vemos na festa!</p>
+                    <a href="index.html" class="button is-outlined mt-4 confirmacao-btn-voltar">Voltar ao início</a>
+                </div>
+            </div>
+
+            <!-- Já confirmou -->
+            <div id="step-ja-confirmou" class="confirmacao-box" style="display:none;">
+                <div class="has-text-centered">
+                    <h3 class="title is-4 confirmacao-sucesso-titulo">Você já confirmou presença! ✓</h3>
+                    <p class="confirmacao-sucesso-texto">Se precisar alterar algo, fale diretamente com os noivos.</p>
+                    <a href="index.html" class="button is-outlined mt-4 confirmacao-btn-voltar">Voltar ao início</a>
+                </div>
+            </div>
+
+            <!-- ==================== PAINEL ADMIN (só aparece logado) ==================== -->
+            <div id="admin-confirmacoes" style="display:none;">
+                <hr class="mt-6 mb-6">
+                <h3 class="title is-4 has-text-centered">Painel de Convidados</h3>
+
+                <!-- Contadores -->
+                <div class="columns is-centered mb-4">
+                    <div class="column is-narrow">
+                        <div class="tags has-addons are-medium">
+                            <span class="tag is-success">Confirmados</span>
+                            <span class="tag" id="count-confirmados">0</span>
+                        </div>
+                    </div>
+                    <div class="column is-narrow">
+                        <div class="tags has-addons are-medium">
+                            <span class="tag is-warning">Pendentes</span>
+                            <span class="tag" id="count-pendentes">0</span>
+                        </div>
+                    </div>
+                    <div class="column is-narrow">
+                        <div class="tags has-addons are-medium">
+                            <span class="tag is-danger">Não vão</span>
+                            <span class="tag" id="count-recusados">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adicionar convidado -->
+                <div class="field has-addons has-addons-centered mb-5">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" id="admin-novo-convidado" placeholder="Nome completo do convidado">
+                    </div>
+                    <div class="control">
+                        <button class="button is-success" id="btn-add-convidado" onclick="adicionarConvidado()">+ Adicionar</button>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="buttons is-centered mb-4">
+                    <button class="button is-small is-light is-active" onclick="filtrarConvidados('todos')">Todos</button>
+                    <button class="button is-small is-success is-light" onclick="filtrarConvidados('confirmado')">Confirmados</button>
+                    <button class="button is-small is-warning is-light" onclick="filtrarConvidados('pendente')">Pendentes</button>
+                    <button class="button is-small is-danger is-light" onclick="filtrarConvidados('recusado')">Não vão</button>
+                </div>
+
+                <!-- Tabela estilo planilha -->
+                <div class="table-container planilha-wrapper">
+                    <table class="table is-fullwidth is-bordered is-narrow" id="tabela-convidados">
+                        <thead>
+                            <tr>
+                                <th class="planilha-col-id">#</th>
+                                <th class="planilha-col-nome">Nome</th>
+                                <th class="planilha-col-telefone">Telefone</th>
+                                <th class="planilha-col-restricoes">Restrições</th>
+                                <th class="planilha-col-presenca">Presença</th>
+                                <th class="planilha-col-recado">Recado</th>
+                                <th class="planilha-col-status">Status</th>
+                                <th class="planilha-col-data">Data</th>
+                                <th class="planilha-col-acoes">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-convidados">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <!-- ==================== MODAL LOGIN ==================== -->
+    <div class="modal" id="modal-login">
+        <div class="modal-background" onclick="fecharModalLogin()"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Login Admin</p>
+                <button class="delete" aria-label="close" onclick="fecharModalLogin()"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Login</label>
+                    <div class="control">
+                        <input class="input" type="text" id="login-usuario" placeholder="Seu login">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" id="login-senha" placeholder="Sua senha">
+                    </div>
+                </div>
+                <p class="help is-danger" id="login-erro" style="display:none;"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary" id="btn-entrar" onclick="fazerLogin()">Entrar</button>
+                <button class="button" onclick="fecharModalLogin()">Cancelar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/confirmacao.js"></script>
 </body>
 
 </html>

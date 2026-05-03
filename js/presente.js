@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby5DiU7jltrAmE8kS4iZmQmk22rtbLSdcAWsM5aNLrQm4BixeweDsclzxMRgcxl9UvE/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwYaA6uNb3OzUEJZRW04aFPJv6zFRz3qL6Wo8iqaYOArM3NhrORghLUKx-3hfnL-enL/exec";
 
 (async function () {
     const loading = document.getElementById('presente-loading');
@@ -60,7 +60,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycby5DiU7jltrAmE8kS4iZmQm
         document.getElementById('presente-qrcode').src = qrUrl;
     } else {
         document.querySelector('.presente-qrcode-wrapper').style.display = 'none';
-        document.getElementById('presente-pix-link').value = 'Chave PIX não configurada';
+        document.getElementById('presente-pix-link').value = 'Chave PAGAMENTO não configurada';
     }
 
     // Mostrar conteúdo

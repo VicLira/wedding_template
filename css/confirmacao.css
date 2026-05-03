@@ -1,0 +1,309 @@
+/* ==========================================
+   CONFIRMAÇÃO DE PRESENÇA
+   ========================================== */
+
+.confirmacao-section {
+    background-color: var(--rosa-fundo);
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    min-height: 95vh;
+}
+
+.confirmacao-section .section-title {
+    margin-bottom: 2rem;
+}
+
+/* Box principal */
+.confirmacao-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--texto-claro);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.confirmacao-instrucao {
+    color: #555;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Boas vindas */
+.confirmacao-boas-vindas {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.confirmacao-boas-vindas p:first-child {
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+}
+
+.confirmacao-boas-vindas p:last-child {
+    color: #666;
+}
+
+/* Formulário */
+.confirmacao-box .label {
+    color: var(--black);
+}
+
+.confirmacao-box .input,
+.confirmacao-box .textarea,
+.confirmacao-box .select select {
+    border-color: #ddd;
+    background-color: #fff;
+    color: var(--black);
+}
+
+.confirmacao-box .input::placeholder,
+.confirmacao-box .textarea::placeholder,
+#admin-confirmacoes .input::placeholder {
+    color: var(--placeholder);
+    opacity: 1;
+}
+
+#admin-confirmacoes .input,
+#admin-confirmacoes .button.is-primary {
+    background-color: #fff;
+    color: var(--black);
+    border-color: #ddd;
+}
+
+.confirmacao-box .input:focus,
+.confirmacao-box .textarea:focus,
+.confirmacao-box .select select:focus {
+    border-color: var(--rosa-fundo);
+    box-shadow: 0 0 0 2px rgba(198, 147, 147, 0.2);
+}
+
+/* Sucesso */
+.confirmacao-sucesso-titulo {
+    color: var(--black);
+}
+
+.confirmacao-sucesso-texto {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.confirmacao-btn-voltar {
+    border-color: var(--rosa-fundo) !important;
+    color: var(--rosa-fundo) !important;
+}
+
+.confirmacao-btn-voltar:hover {
+    background: var(--rosa-fundo) !important;
+    color: var(--texto-claro) !important;
+}
+
+/* ==========================================
+   PAINEL ADMIN
+   ========================================== */
+
+#admin-confirmacoes {
+    margin-top: 2rem;
+}
+
+#admin-confirmacoes .title {
+    color: var(--texto-claro);
+}
+
+#admin-confirmacoes hr {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Planilha Wrapper */
+.planilha-wrapper {
+    background: var(--texto-claro);
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+#tabela-convidados {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+}
+
+#tabela-convidados th {
+    background: #e8eaed;
+    color: var(--black);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border: 1px solid #ddd;
+    padding: 0.6rem 0.75rem;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#tabela-convidados td {
+    vertical-align: middle;
+    color: var(--black);
+    border: 1px solid #e5e5e5;
+    padding: 0.5rem 0.75rem;
+    background: #fff;
+}
+
+#tabela-convidados tr:hover td {
+    background: #f5f7fa;
+}
+
+.planilha-cell {
+    min-width: 80px;
+}
+
+.planilha-cell-id {
+    text-align: center;
+    color: #888;
+    font-size: 0.75rem;
+    min-width: 40px;
+    width: 40px;
+}
+
+.planilha-cell-acoes {
+    text-align: center;
+    min-width: 50px;
+    width: 50px;
+}
+
+.planilha-col-nome { min-width: 150px; }
+.planilha-col-telefone { min-width: 120px; }
+.planilha-col-restricoes { min-width: 120px; }
+.planilha-col-recado { min-width: 150px; }
+.planilha-col-status { min-width: 100px; }
+.planilha-col-data { min-width: 90px; }
+
+/* Inputs inline editáveis */
+.input-inline {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 0.25rem 0.4rem;
+    font-size: 0.85rem;
+    width: 100%;
+    border-radius: 4px;
+    transition: border-color 0.2s, background-color 0.2s;
+    color: var(--black);
+    font-family: inherit;
+}
+
+.input-inline:hover {
+    border-color: #ddd;
+    background: #fafafa;
+}
+
+.input-inline:focus {
+    outline: none;
+    border-color: var(--rosa-fundo);
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(198, 147, 147, 0.15);
+}
+
+.input-inline.input-saving {
+    opacity: 0.6;
+}
+
+.input-inline.input-saved {
+    border-color: #48c774;
+    background: #f0fff4;
+}
+
+.select-inline {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--black);
+    font-family: inherit;
+}
+
+.select-inline:hover {
+    border-color: #ddd;
+    background: #fafafa;
+}
+
+.select-inline:focus {
+    outline: none;
+    border-color: var(--rosa-fundo);
+}
+
+.select-inline.input-saving {
+    opacity: 0.6;
+}
+
+.select-inline.input-saved {
+    border-color: #48c774;
+    background: #f0fff4;
+}
+
+/* ==========================================
+   AUTOCOMPLETE
+   ========================================== */
+
+.autocomplete-wrapper {
+    position: relative;
+}
+
+.autocomplete-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.autocomplete-item {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--black);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background: var(--rosa-fundo);
+    color: var(--texto-claro);
+}
+
+/* ==========================================
+   RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+    .confirmacao-box {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .confirmacao-boas-vindas p:first-child {
+        font-size: 1.1rem;
+    }
+
+    #tabela-convidados {
+        font-size: 0.85rem;
+    }
+}

@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby3KppU3E5Z_D5q_p6mE7VCv3j4dsoRDy81-U77xjvngTMX-2Y07-DI2hfKQkCRsCPj/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwYaA6uNb3OzUEJZRW04aFPJv6zFRz3qL6Wo8iqaYOArM3NhrORghLUKx-3hfnL-enL/exec";
 
 (async function () {
     const ITEMS_PER_PAGE = 3;
